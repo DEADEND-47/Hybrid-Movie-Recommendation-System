@@ -1,0 +1,70 @@
+# Centralized Configuration for Hybrid Movie Recommendation System
+# B.Tech CSE (AI) Capstone & Internship Portfolio
+
+dataset:
+  name: "100k"
+  data_dir: "data"
+  artifacts_dir: "artifacts"
+  outputs_dir: "outputs"
+  test_size: 0.10
+  val_size: 0.10
+  random_seed: 42
+  eval_seeds: [42, 123, 999]
+
+models:
+  svd:
+    n_factors: 32
+    lr: 0.005
+    reg: 0.02
+    n_epochs: 30
+
+  ncf:
+    latent_dim_gmf: 32
+    latent_dim_mlp: 32
+    mlp_hidden_dims: [128, 64, 32]
+    dropout_rate: 0.2
+    batch_size: 384
+    epochs: 15
+    lr: 0.001
+    weight_decay: 0.00001
+
+  content:
+    max_features: 5000
+    ngram_range: [1, 2]
+
+  hybrid:
+    cold_start_alpha: 0.5
+    default_weights:
+      ncf: 0.45
+      svd: 0.35
+      content: 0.20
+    ablation_weights:
+      ncf_only:
+        ncf: 1.0
+        svd: 0.0
+        content: 0.0
+      svd_only:
+        ncf: 0.0
+        svd: 1.0
+        content: 0.0
+      content_only:
+        ncf: 0.0
+        svd: 0.0
+        content: 1.0
+      equal_blend:
+        ncf: 0.3333
+        svd: 0.3333
+        content: 0.3334
+      collaborative_only:
+        ncf: 0.50
+        svd: 0.50
+        content: 0.0
+      tuned_hybrid:
+        ncf: 0.45
+        svd: 0.35
+        content: 0.20
+
+evaluation:
+  k: 10
+  relevance_threshold: 4.0
+  min_user_ratings: 5

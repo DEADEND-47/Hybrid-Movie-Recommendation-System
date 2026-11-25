@@ -1,0 +1,17 @@
+{
+  "dataset": "100k",
+  "num_users": 943,
+  "num_items": 1682,
+  "train_ratings": 80000,
+  "val_ratings": 10000,
+  "test_ratings": 10000,
+  "embedding_dim": 32,
+  "batch_size": 384,
+  "ncf_epochs": 15,
+  "svd_epochs": 30,
+  "ncf_best_val_rmse": 0.9203324451195856,
+  "ncf_peak_vram_mb": 20.63623046875,
+  "ncf_peak_vram_gb": 0.020152568817138672,
+  "total_training_time_seconds": 236.41,
+  "timestamp": "2026-11-24 17:19:46"
+}

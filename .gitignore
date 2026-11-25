@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Large Datasets & Archives
+data/raw/
+data/ml-100k/
+data/ml-1m/
+data/cache/
+
+# Model Checkpoints & Large Artifacts
+artifacts/*.pkl
+artifacts/*.pt
+
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Logs & Temporary files
+*.log
+.system_generated/
